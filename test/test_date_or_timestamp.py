@@ -15,10 +15,10 @@
 
 import unittest
 
-from openapi_client.models.view_mail_log_start_date_parameter import ViewMailLogStartDateParameter
+from openapi_client.models.date_or_timestamp import DateOrTimestamp
 
-class TestViewMailLogStartDateParameter(unittest.TestCase):
-    """ViewMailLogStartDateParameter unit test stubs"""
+class TestDateOrTimestamp(unittest.TestCase):
+    """DateOrTimestamp unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,24 +26,24 @@ class TestViewMailLogStartDateParameter(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ViewMailLogStartDateParameter:
-        """Test ViewMailLogStartDateParameter
+    def make_instance(self, include_optional) -> DateOrTimestamp:
+        """Test DateOrTimestamp
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ViewMailLogStartDateParameter`
+        # uncomment below to create an instance of `DateOrTimestamp`
         """
-        model = ViewMailLogStartDateParameter()
+        model = DateOrTimestamp()
         if include_optional:
-            return ViewMailLogStartDateParameter(
+            return DateOrTimestamp(
             )
         else:
-            return ViewMailLogStartDateParameter(
+            return DateOrTimestamp(
         )
         """
 
-    def testViewMailLogStartDateParameter(self):
-        """Test ViewMailLogStartDateParameter"""
+    def testDateOrTimestamp(self):
+        """Test DateOrTimestamp"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

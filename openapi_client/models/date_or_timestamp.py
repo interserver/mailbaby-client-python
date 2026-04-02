@@ -23,16 +23,16 @@ from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-VIEWMAILLOGSTARTDATEPARAMETER_ONE_OF_SCHEMAS = ["int", "str"]
+DATEORTIMESTAMP_ONE_OF_SCHEMAS = ["int", "str"]
 
-class ViewMailLogStartDateParameter(BaseModel):
+class DateOrTimestamp(BaseModel):
     """
-    ViewMailLogStartDateParameter
+    A date/time value accepted as either a Unix timestamp (integer seconds since epoch) or a date string parseable by `strtotime()` (e.g. `2024-01-15`, `last monday`).
     """
     # data type: int
-    oneof_schema_1_validator: Optional[Annotated[int, Field(le=9999999999, strict=True, ge=0)]] = None
+    oneof_schema_1_validator: Optional[Annotated[int, Field(le=9999999999, strict=True, ge=0)]] = Field(default=None, description="Unix timestamp (integer seconds since epoch, 0–9999999999).")
     # data type: str
-    oneof_schema_2_validator: Optional[StrictStr] = None
+    oneof_schema_2_validator: Optional[StrictStr] = Field(default=None, description="Date string parseable by strtotime() such as `2024-01-15` or `last monday`.")
     actual_instance: Optional[Union[int, str]] = None
     one_of_schemas: Set[str] = { "int", "str" }
 
@@ -54,7 +54,7 @@ class ViewMailLogStartDateParameter(BaseModel):
 
     @field_validator('actual_instance')
     def actual_instance_must_validate_oneof(cls, v):
-        instance = ViewMailLogStartDateParameter.model_construct()
+        instance = DateOrTimestamp.model_construct()
         error_messages = []
         match = 0
         # validate data type: int
@@ -71,10 +71,10 @@ class ViewMailLogStartDateParameter(BaseModel):
             error_messages.append(str(e))
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in ViewMailLogStartDateParameter with oneOf schemas: int, str. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in DateOrTimestamp with oneOf schemas: int, str. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in ViewMailLogStartDateParameter with oneOf schemas: int, str. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in DateOrTimestamp with oneOf schemas: int, str. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -110,10 +110,10 @@ class ViewMailLogStartDateParameter(BaseModel):
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into ViewMailLogStartDateParameter with oneOf schemas: int, str. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into DateOrTimestamp with oneOf schemas: int, str. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into ViewMailLogStartDateParameter with oneOf schemas: int, str. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into DateOrTimestamp with oneOf schemas: int, str. Details: " + ", ".join(error_messages))
         else:
             return instance
 
