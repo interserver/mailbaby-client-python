@@ -15,32 +15,37 @@
 
 import unittest
 
-from openapi_client.api.history_api import HistoryApi
+from openapi_client.models.view_mail_log_start_date_parameter import ViewMailLogStartDateParameter
 
+class TestViewMailLogStartDateParameter(unittest.TestCase):
+    """ViewMailLogStartDateParameter unit test stubs"""
 
-class TestHistoryApi(unittest.TestCase):
-    """HistoryApi unit test stubs"""
-
-    def setUp(self) -> None:
-        self.api = HistoryApi()
-
-    def tearDown(self) -> None:
+    def setUp(self):
         pass
 
-    def test_get_stats(self) -> None:
-        """Test case for get_stats
+    def tearDown(self):
+        pass
 
-        Account usage statistics
+    def make_instance(self, include_optional) -> ViewMailLogStartDateParameter:
+        """Test ViewMailLogStartDateParameter
+            include_optional is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # uncomment below to create an instance of `ViewMailLogStartDateParameter`
         """
-        pass
-
-    def test_view_mail_log(self) -> None:
-        """Test case for view_mail_log
-
-        Displays the mail log
+        model = ViewMailLogStartDateParameter()
+        if include_optional:
+            return ViewMailLogStartDateParameter(
+            )
+        else:
+            return ViewMailLogStartDateParameter(
+        )
         """
-        pass
 
+    def testViewMailLogStartDateParameter(self):
+        """Test ViewMailLogStartDateParameter"""
+        # inst_req_only = self.make_instance(include_optional=False)
+        # inst_req_and_optional = self.make_instance(include_optional=True)
 
 if __name__ == '__main__':
     unittest.main()
